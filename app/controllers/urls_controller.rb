@@ -19,18 +19,18 @@ class UrlsController < ApplicationController
 
     letters =  [('a'..'z'),('A'..'Z')].map{|l| l.to_a}.flatten
     @url.random_id =  (0...8).map{ letters[rand(letters.length)] }.join
-    binding.pry
+    #binding.pry
   end
 
   def url_params
-    binding.pry
+    #binding.pry
     params.require(:url).permit(:original, :random_id)
   end
 
   def create
-    binding.pry
+    #binding.pry
     @url = Url.new(url_params)
-    binding.pry
+    #binding.pry
     if @url.save
       redirect_to urls_path
     else
