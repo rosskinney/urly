@@ -1,0 +1,15 @@
+<h1>Shorten an URL</h1>
+
+<% @url.errors.each do |attr, msg| %>
+    <%= msg %> on <%= attr %>
+<% end %>
+
+<%= form_for @url do |f| %>
+    <%= f.label :original %> : <%= f.text_field :original %>
+    <p>
+    <%= f.hidden_field :random_id, :value => @url_random_id %>
+    </p>
+    <p>
+    <%= f.submit "Shorten my Url" %>
+    </p>
+<% end %>
