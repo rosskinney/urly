@@ -5,7 +5,7 @@ class UrlsController < ApplicationController
   end
 
   def show
-    url = Url.where(random_id:params[:id]).first
+    url = Url.where(random_id: params[:id]).first
 
     if url
       redirect_to url.original
@@ -17,20 +17,18 @@ class UrlsController < ApplicationController
   def new
     @url = Url.new
 
-    letters =  [('a'..'z'),('A'..'Z')].map{|l| l.to_a}.flatten
-    @url.random_id =  (0...8).map{ letters[rand(letters.length)] }.join
-    #binding.pry
+    letters = [('a'..'z'), ('A'..'Z')].map { |l| l.to_a }.flatten
+    @url.random_id = (0...8).map { letters[rand(letters.length)] }.join
   end
 
   def url_params
-    #binding.pry
+
     params.require(:url).permit(:original, :random_id)
   end
 
   def create
-    #binding.pry
     @url = Url.new(url_params)
-    #binding.pry
+   
     if @url.save
       redirect_to urls_path
     else

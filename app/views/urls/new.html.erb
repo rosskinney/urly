@@ -7,7 +7,8 @@
 <%= form_for @url do |f| %>
     <%= f.label :original %> : <%= f.text_field :original %>
     <p>
-    <%= f.hidden_field :random_id, :value => @url_random_id %>
+    <%= f.hidden_field :random_id, :value => @url.random_id %> # note the dot, to match what you set in the controller.
+
     </p>
     <p>
     <%= f.submit "Shorten my Url" %>

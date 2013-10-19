@@ -1,8 +1,5 @@
 Urly::Application.routes.draw do
   root :to => redirect('/urls/new')
-  #root to: 'urls#new'
-  #root :to => redirect ('/urls/new')
-  #root to: redirect ('urls/new')
   resources :urls, :only => [:index, :show, :new, :create]
   #resources :urls
 # The priority is based upon order of creation: first created -> highest priority.
